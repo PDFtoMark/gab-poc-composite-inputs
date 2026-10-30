@@ -5,6 +5,7 @@ jobs:
   probe:
     runs-on: ubuntu-latest
     steps:
+      - uses: actions/checkout@v4
       - name: outer step env
         run: |
           echo "=== INPUT_ vars in normal step ==="
