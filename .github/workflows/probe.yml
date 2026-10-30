@@ -1,0 +1,14 @@
+name: probe
+on:
+  workflow_dispatch:
+jobs:
+  probe:
+    runs-on: ubuntu-latest
+    steps:
+      - name: outer step env
+        run: |
+          echo "=== INPUT_ vars in normal step ==="
+          env | grep -i '^INPUT_' || echo "(none)"
+      - uses: ./.github/actions/probe
+        with:
+          secret-value: "s3cr3t-probe-value"
